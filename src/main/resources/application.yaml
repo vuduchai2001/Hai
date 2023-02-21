@@ -1,0 +1,30 @@
+server:
+  port: 8081
+spring:
+  jpa:
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    open-in-view: false
+    generate-ddl: false
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+      generate_statistics: true
+    properties:
+      hibernate:
+        jdbc:
+          batch_size: 50
+        order_inserts: true
+        order_updates: true
+    datasource:
+      type: com.zaxxer.hikari.HikariDataSource
+      url: ${POSTGRES_URI:jdbc:}
+      username: ${POSTGRES_USER:}
+      password: ${POSTGRES_PASSWORD:}
+      hikari:
+        maximum-pool-size: ${CONNECTION_POOL_SIZE:32}
+  datasource:
+    url: jdbc:postgresql://localhost:5432/Product_test
+    username: postgres
+    password: 123456aA@
+
